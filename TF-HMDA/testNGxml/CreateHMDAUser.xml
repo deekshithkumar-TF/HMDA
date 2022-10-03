@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Xactus360 Test Automation Suite" parallel="classes"
+	verbose="1" configfailurepolicy="continue">
+
+	<listeners>
+		<listener class-name="com.HMDA.reports.ExtentReport" />
+		<listener class-name="com.HMDA.Analyzer.AnnotationTransformer" />
+		<listener class-name="com.HMDA.Analyzer.RetryTestListenerAdapter" />
+	</listeners>
+
+
+	<parameter name="environment" value="QA" />
+	<parameter name="browser" value="CH" />
+	<parameter name="baseURL" value="https://qaxactusphere.xactus.com/" />
+
+	<test thread-count="1" name="Interactive Report Tests">
+		<groups>
+			<run>
+				<include name="Smoke" />
+				<!-- <include name="Regression" /> -->
+			</run>
+		</groups>
+		<classes>	
+		
+			 <!-- <class name="com.HMDA.testcases.LoginTestCases"/>-->
+			  <class name="com.HMDA.testcases.CreateHMDAUser"/>
+			
+		</classes>
+	</test>
+</suite>

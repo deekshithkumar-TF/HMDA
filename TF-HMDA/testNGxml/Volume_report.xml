@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Credit Plus Test Automation Suite" parallel="classes"
+	verbose="1" configfailurepolicy="continue">
+
+	<listeners>
+		<listener class-name="com.creditplus.reports.ExtentReport" />
+		<listener class-name="com.creditplus.Analyzer.AnnotationTransformer" />
+		<listener class-name="com.creditplus.Analyzer.RetryTestListenerAdapter" />
+	</listeners>
+
+
+	<parameter name="environment" value="QA" />
+	<parameter name="browser" value="CH" />
+	<parameter name="baseURL" value="https://qaskyline.creditplus.com" />
+
+	<test thread-count="4" name="Credit Plus VolumeReport Test Cases ">
+		<groups>
+			<run>
+				<include name="Smoke" />
+				<!-- <include name="Regression" /> -->
+			</run>
+		</groups>
+		<classes>	
+		
+			<class name="com.creditplus.testcases.VolumeReportTestCases" />
+			
+		</classes>
+	</test>
+</suite>
