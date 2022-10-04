@@ -26,4 +26,6 @@ public class ConfigConstants {
     public static String Create_HMDAUser_TestData = resources + "xactusUser_test_data.xlsx";
     public static String Create_CustomerUser_TestData = resources + "customeruser_test_data.xlsx";
     
+    public static String Create_Project_TestData=resources+"CreateProject.xlsx";
+    
 }

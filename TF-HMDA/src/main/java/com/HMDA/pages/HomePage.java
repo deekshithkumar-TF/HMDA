@@ -171,6 +171,33 @@ public class HomePage extends BasePage {
 	@FindBy (xpath="//div/button[@id='tooltip-target-id']")
 	public WebElement ClickonCreateUserButtton;
 	
+	//HMDA HOME page
+	@FindBy(xpath = "//div/h4[contains(text(),'create project')]")
+	public WebElement CreateProject;
+	
+	@FindBy(xpath = "//input[@placeholder='Project Name']")
+	public WebElement ProjectName;
+	
+	@FindBy(xpath ="//div/textarea[@class='form-control _base-textarea_selectbg_Ln2S-']")
+	public WebElement Description;
+	
+	@FindBy (xpath ="//div/button[@type='submit']")
+	public WebElement CreateButton;
+	
+	//Create Project
+	
+	public void CreateProject()
+	{
+		waitForElementVisibilityWithPollingTime(CreateProject);
+		Actions action = new Actions( driver );
+		Logs.info("Mouse hovering on the CreateProject buttton");
+		action.moveToElement(CreateProject ).perform();
+		
+	
+		
+	}
+
+	
 
 	//Navigating to xactus Users Page
 	

@@ -60,4 +60,14 @@ public class LoginTestCases extends BaseTest {
 		assertTrue(homePage.checkWelcomeUserid("HMDA Manager"));
 		
 	}
+	public void LoginasxactusHMDAProcessor()
+
+	{
+		reportLogger("Login as xactus HMDA Processor");
+		HomePage homePage = loginPage.loginAsUser("xactusHMDAProcessor");
+		
+		reportLogger("verify that user has logged in successfully");		
+		assertTrue(homePage.checkWelcomeUserid("xactusHMDA Processor"));
+		
+	}
 }

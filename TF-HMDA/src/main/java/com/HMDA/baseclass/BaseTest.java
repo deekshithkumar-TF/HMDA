@@ -30,8 +30,8 @@ import org.testng.annotations.Parameters;
 import com.HMDA.constants.ConfigConstants;
 import com.HMDA.helper.ExcelUtils;
 import com.HMDA.helper.WebDriverUtils;
+import com.HMDA.pages.CreateProjectPage;
 
-import com.HMDA.pages.CreateRescoreOrderPage;
 import com.HMDA.pages.CreateXactusUserPage;
 import com.HMDA.pages.CustomersPage;
 import com.HMDA.pages.HMDACustomerUser;
@@ -62,9 +62,9 @@ public class BaseTest {
     public CustomersPage customersPage;  
     public CreateXactusUserPage CreateHMDAUser;
     public HMDACustomerUser CustomerHMDAUser;
+    public CreateProjectPage CreateProject;
     
    
-    public CreateRescoreOrderPage createRescoreOrderPage;
        
    
     @BeforeMethod(alwaysRun = true)
@@ -96,9 +96,10 @@ public class BaseTest {
 
         loginPage = new LoginPage(driver , this.baseURL);
         homePage = new HomePage(driver);       
-        createRescoreOrderPage=new CreateRescoreOrderPage(driver);
+        //createRescoreOrderPage=new CreateRescoreOrderPage(driver);
         customersPage =new CustomersPage(driver);   
         CreateHMDAUser =new CreateXactusUserPage(driver);
+        CreateProject =new CreateProjectPage(driver);
         
 
         appURL = baseURL;
@@ -243,5 +244,14 @@ public class BaseTest {
         List<Map<String, String>> keyValuePairs = ExcelUtils.fetchData( ConfigConstants.Create_CustomerUser_TestData, "Details" );
         return asTwoDimensionalArray(keyValuePairs);
     }
+    
+    @DataProvider(name = "CreateProject")
+    public Object[][] getprojectDetails() throws Exception{
+
+        List<Map<String, String>> keyValuePairs = ExcelUtils.fetchData( ConfigConstants.Create_Project_TestData, "Details" );
+        return asTwoDimensionalArray(keyValuePairs);
+    }
+    
+    
     
 }
